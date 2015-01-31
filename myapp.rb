@@ -1,6 +1,9 @@
 # myapp.rb
 require 'sinatra'
 
+set :bind, '0.0.0.0'
+set :port, 2974
+
 get '/' do
   'Hello!'
 end
