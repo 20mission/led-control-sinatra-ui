@@ -16,7 +16,7 @@ get '/' do
 end
 
 get '/newMode/:newMode' do
-  s = TCPSocket.open("beaglebone.local", "2973")
+  s = TCPSocket.open("courtyard-leds.local", "2973")
   to_send = "set pattern #{params[:newMode]}"
   puts to_send
   s.write(to_send)
