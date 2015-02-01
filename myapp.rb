@@ -6,13 +6,7 @@ set :bind, '0.0.0.0'
 set :port, 2974
 
 get '/' do
-  patterns = ["Volume", "LightsOff", "LightsOn", "MicrophonePulse", "FastMicrophonePulse", "Ants", "Spin", "Rainbow", "RainbowCandy", "Fade", "CrazyColorStrobe", "ColorStrobe", "Strobe", "TestPixel"] 
-  result = "<html><body>"
-  patterns.each do |p|
-    result += "<div><a href='/newMode/#{p.underscore}'><button>#{p}</button></a></div>"
-  end
-  result += "</body></html>"
-  result
+  erb :index
 end
 
 get '/newMode/:newMode' do
