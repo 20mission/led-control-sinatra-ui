@@ -1,11 +1,19 @@
 # myapp.rb
+require "rack/cache"
 require 'sinatra'
 require 'active_support/all'
+
 
 set :bind, '0.0.0.0'
 set :port, 2974
 
+use Rack::Cache
+
+set :static, true
+set :static_cache_control, [:public, :max_age => 36000]
+
 get '/' do
+  cache_control :public, :max_age => 36000
   erb :index
 end
 
